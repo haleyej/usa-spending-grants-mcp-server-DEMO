@@ -7,7 +7,7 @@ from pydantic.functional_validators import field_validator, model_validator
 
 
 class AwardTypeCode(str, Enum):
-    """Award type codes for filtering"""
+    """Grant award type codes for filtering"""
 
     BPA_CALL = "A"
     PURCHASE_ORDER = "B"
@@ -17,14 +17,6 @@ class AwardTypeCode(str, Enum):
     GRANT_03 = "03"
     GRANT_04 = "04"
     GRANT_05 = "05"
-    DIRECT_PAYMENT_06 = "06"
-    DIRECT_PAYMENT_10 = "10"
-    LOAN_07 = "07"
-    LOAN_08 = "08"
-    OTHER_09 = "09"
-    OTHER_11 = "11"
-    OTHER_NEG1 = "-1"
-    IDV = "IDV"
 
 
 class AgencyTier(str, Enum):
