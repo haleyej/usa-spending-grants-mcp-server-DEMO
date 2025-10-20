@@ -81,7 +81,7 @@ uv tool install git+https://github.com/GSA-TTS/arc-usa-spending-mcp-server
 
 ### With uv:
 ```sh
-usa-spending-mcp-server
+uv run usa-spending-mcp-server
 ```
 
 ### With Poetry:
