@@ -44,10 +44,14 @@ class AwardSearchFilters(BaseSearchFilters):
     award_type_codes: Annotated[
         list[AwardTypeCode] | None, Field(description="List of award type codes")
     ] = [
-        AwardTypeCode.BPA_CALL,
-        AwardTypeCode.PURCHASE_ORDER,
-        AwardTypeCode.DELIVERY_ORDER,
+        AwardTypeCode.BPA_CALL, 
+        AwardTypeCode.PURCHASE_ORDER, 
+        AwardTypeCode.DELIVERY_ORDER, 
         AwardTypeCode.DEFINITIVE_CONTRACT,
+        AwardTypeCode.GRANT_02,
+        AwardTypeCode.GRANT_03,
+        AwardTypeCode.GRANT_04,
+        AwardTypeCode.GRANT_05,
     ]
     award_amounts: Annotated[
         list[AwardAmount] | None, Field(description="List of award amount ranges")
@@ -72,6 +76,7 @@ class AwardSearchRequest(BaseSearchRequest):
         "Awarding Agency",
         "Awarding Sub Agency",
         "Award Type",
+        "Description"
     ]
     sort: Annotated[str | None, Field(description="Sort order for the award search")] = None
     subawards: Annotated[
