@@ -6,21 +6,9 @@ from fastmcp import FastMCP
 from usa_spending_mcp_server.client import USASpendingClient
 from usa_spending_mcp_server.tools.agency_spending import register_agency_tools
 from usa_spending_mcp_server.tools.award_spending import register_award_search_tools
-from usa_spending_mcp_server.tools.geography_spending import register_geography_tools
-from usa_spending_mcp_server.tools.program_activity_spending import (
-    register_program_activity_tools,
-)
-from usa_spending_mcp_server.tools.recipient_spending import (
-    register_recipient_search_tools,
-)
-from usa_spending_mcp_server.tools.reference_tools import register_reference_tools
-from usa_spending_mcp_server.tools.spending_explorer import (
-    register_spending_explorer_tools,
-)
 
 logger = logging.getLogger(__name__)
 
-# Create FastMCP instance with detailed instructions
 # Create FastMCP instance with detailed instructions
 mcp = FastMCP(
     name="USASpendingServer",
@@ -177,12 +165,6 @@ async def async_main():
         logger.info("Registering tools")
         register_agency_tools(mcp, client)
         register_award_search_tools(mcp, client)
-        register_geography_tools(mcp, client)
-        register_program_activity_tools(mcp, client)
-        register_recipient_search_tools(mcp, client)
-        register_reference_tools(mcp, client)
-        register_spending_explorer_tools(mcp, client)
-
         logger.info("Running USA Spending MCP Server")
         await mcp.run_async()
 
