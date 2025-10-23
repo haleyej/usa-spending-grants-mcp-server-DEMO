@@ -168,7 +168,6 @@ def register_award_search_tools(mcp: FastMCP, client: USASpendingClient):
                 - Single: ['CONT_AWD_W91ZRS23C0001_9700_-NONE-_-NONE-']
                 - Multiple: ['CONT_AWD_W91ZRS23C0001_9700_-NONE-_-NONE-',
                     'CONT_AWD_W91ZRS23C0001_9702_-NONE-_-NONE-']
-                - Contract IDs typically start with letters followed by numbers
                 - Grant IDs vary by agency
                 - Can be found using search_spending_by_award (generated_internal_id field) tool
             max_concurrent: Maximum number of concurrent requests (default: 10, max: 10)

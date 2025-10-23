@@ -33,6 +33,17 @@ class AgencyType(str, Enum):
     FUNDING = "funding"
 
 
+class RecipientType(str, Enum):
+    """Recipient types for filtering"""
+
+    FEDERALLY_FUNDED_RD = "Federally Funded Research and Development Corp"
+    HIGHER_ED = "Higher Education"
+    PUBLIC_HIGHER_ED = "Public Institution of Higher Education"
+    PRIVATE_HIGHER_ED = "Private Institution of Higher Education"
+    MINORITY_SERVING_HIGHER_ED = "Minority-Serving Institution of Higher Education"
+    FORESTRY_SCHOOL = "School of Forestry"
+    VET_COLLEGE = "Veterinary College"
+
 class SortOrder(str, Enum):
     """Sort order options"""
 
@@ -94,10 +105,7 @@ class BaseSearchFilters(BaseModel):
         list[str] | None, Field(description="Recipient search text, ex: ['Amazon']")
     ] = None
     recipient_type_names: Annotated[
-        list[str] | None,
-        Field(
-            description="Recipient type names, ex: ['category_business', 'sole_proprietorship', 'nonprofit', 'community_development_corporations']"
-        ),
+        list[RecipientType] | None, Field(description="Recipient type names")
     ] = None
 
 
