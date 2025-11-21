@@ -4,6 +4,8 @@
 
 A simple MCP server for interacting with the USAspending.gov API.
 
+This fork modifies the main [USA Spending Server](https://github.com/GSA-TTS/usa-spending-mcp-server-DEMO) to specifically support searches for federal grants.
+
 ## Requirements
 
 - Python 3.13+
