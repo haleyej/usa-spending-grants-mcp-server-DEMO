@@ -14,7 +14,8 @@ mcp = FastMCP(
     name="USASpendingServer",
     instructions="""
     This server provides comprehensive access to USA government spending data through the
-    USAspending.gov API.
+    USAspending.gov API. Use this server when you are interested in data from multiple agencies
+    or from agencies other than the National Institutes of Health (NIH)
 
     ## Quick Tool Selection Guide:
 
@@ -62,12 +63,6 @@ mcp = FastMCP(
     - Format: YYYY-MM-DD
 
     ### Award Types:
-    Contracts:
-      - **A:** BPA Call 
-      - **B:** Purchase Order 
-      - **C:** Delivery Order
-      - **D:** Definitive Contract
-
     Grants:
       - **02:** Block Grant 
       - **03:** Formula Grant
