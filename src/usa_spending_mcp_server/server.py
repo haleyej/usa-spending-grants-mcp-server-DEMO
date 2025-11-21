@@ -2,6 +2,7 @@ import asyncio
 import logging
 
 from fastmcp import FastMCP
+from startlette.responses import JSONResponse
 
 from usa_spending_mcp_server.client import USASpendingClient
 from usa_spending_mcp_server.tools.agency_spending import register_agency_tools
@@ -93,6 +94,11 @@ mcp = FastMCP(
     """,
 )
 
+# health check 
+@mcp.custom_route("/health", method=['GET'])
+async def health_check(request):
+    return JSONResponse({"status":"healthy", "service":"mcp-server"})
+
 
 def main():
     """Main entry point"""
@@ -114,6 +120,7 @@ async def async_main():
         logger.info("Running USA Spending MCP Server")
         await mcp.run_async()
 
+app = mcp.http_app(stateless_http=True)
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()

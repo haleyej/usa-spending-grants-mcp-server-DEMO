@@ -1,1 +1,1 @@
-web: PYTHONPATH=src uvicorn src.portfolio.app:app --host 0.0.0.0 --port $PORT --workers 2
+web: PYTHONPATH=src uvicorn src.usa_spending_mcp_server.server:app --host 0.0.0.0 --port $PORT --workers 2
