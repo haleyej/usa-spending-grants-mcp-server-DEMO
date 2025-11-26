@@ -2,7 +2,7 @@ import asyncio
 import logging
 
 from fastmcp import FastMCP
-from startlette.responses import JSONResponse
+from starlette.responses import JSONResponse
 
 from usa_spending_mcp_server.client import USASpendingClient
 from usa_spending_mcp_server.tools.agency_spending import register_agency_tools
