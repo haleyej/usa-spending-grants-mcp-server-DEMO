@@ -100,27 +100,39 @@ async def health_check(request):
     return JSONResponse({"status": "healthy", "service": "mcp-server"})
 
 
-def main():
-    """Main entry point"""
-    logging.basicConfig(level=logging.INFO)
-    logger.info("Starting USA Spending MCP Server")
-
-    # Run the asynchronous main function
-    asyncio.run(async_main())
-
-
+client = USASpendingClient()
+# Register tools at module level
+logger.info("Registering tools")
+register_agency_tools(mcp, client)
+register_award_search_tools(mcp, client)
+# Now create the HTTP app with tools already registered
+app = mcp.http_app(stateless_http=True)
 async def async_main():
-    """Async entry point"""
-    # Initialize HTTP client
+    """Async entry point for stdio mode"""
     async with USASpendingClient() as client:
-        # Register tools
-        logger.info("Registering tools")
-        register_agency_tools(mcp, client)
-        register_award_search_tools(mcp, client)
-        logger.info("Running USA Spending MCP Server")
+        logger.info("Running USA Spending MCP Server in stdio mode")
         await mcp.run_async()
 
-app = mcp.http_app(stateless_http=True)
+# def main():
+#     """Main entry point"""
+#     logging.basicConfig(level=logging.INFO)
+#     logger.info("Starting USA Spending MCP Server")
+
+#     # Run the asynchronous main function
+#     asyncio.run(async_main())
+
+
+# async def async_main():
+#     """Async entry point"""
+#     # Initialize HTTP client
+#     async with USASpendingClient() as client:
+#         # Register tools
+#         logger.info("Registering tools")
+#         register_agency_tools(mcp, client)
+#         register_award_search_tools(mcp, client)
+#         logger.info("Running USA Spending MCP Server")
+#         await mcp.run_async()
+
 
 # if __name__ == "__main__":
 #     main()
