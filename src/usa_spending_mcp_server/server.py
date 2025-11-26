@@ -100,25 +100,25 @@ async def health_check(request):
     return JSONResponse({"status": "healthy", "service": "mcp-server"})
 
 
-# def main():
-#     """Main entry point"""
-#     logging.basicConfig(level=logging.INFO)
-#     logger.info("Starting USA Spending MCP Server")
+def main():
+    """Main entry point"""
+    logging.basicConfig(level=logging.INFO)
+    logger.info("Starting USA Spending MCP Server")
 
-#     # Run the asynchronous main function
-#     asyncio.run(async_main())
+    # Run the asynchronous main function
+    asyncio.run(async_main())
 
 
-# async def async_main():
-#     """Async entry point"""
-#     # Initialize HTTP client
-#     async with USASpendingClient() as client:
-#         # Register tools
-#         logger.info("Registering tools")
-#         register_agency_tools(mcp, client)
-#         register_award_search_tools(mcp, client)
-#         logger.info("Running USA Spending MCP Server")
-#         await mcp.run_async()
+async def async_main():
+    """Async entry point"""
+    # Initialize HTTP client
+    async with USASpendingClient() as client:
+        # Register tools
+        logger.info("Registering tools")
+        register_agency_tools(mcp, client)
+        register_award_search_tools(mcp, client)
+        logger.info("Running USA Spending MCP Server")
+        await mcp.run_async()
 
 app = mcp.http_app(stateless_http=True)
 
