@@ -95,7 +95,7 @@ mcp = FastMCP(
 )
 
 # health check 
-@mcp.custom_route("/health", method=['GET'])
+@mcp.custom_route("/health", methods=['GET'])
 async def health_check(request):
     return JSONResponse({"status": "healthy", "service": "mcp-server"})
 
